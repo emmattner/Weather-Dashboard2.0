@@ -34,4 +34,35 @@ function displayCityWeather() {
         const queryURLUVIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + long + "&appid=48eb8f7025236f284142f7fe0b9f55b4";
 
 
+        $.ajax({
+            url: queryURLUVIndex,
+            method: "GET"
+        }).then(function (response) {
+
+            var uvIndexValue = response.value;
+
+            var indexLow = $("<span>");
+            indexLow.addClass("badge badge-success");
+            indexLow.text(response.value);
+
+            var indexMid = $("<span>");
+            indexMid.addClass("badge badge-warning");
+            indexMid.text(response.value);
+
+            var indexHigh = $("<span>");
+            indexHigh.addClass("badge badge-danger");
+            indexHigh.text(response.value);
+
+            if (uvIndexValue <= 3) {
+                $("#uvIndex").append(indexLow);
+            }
+            else if (uvIndexValue <= 7) {
+                $("#uvIndex").append(indexMid);
+            }
+            else if (uvIndexValue => 7) {
+                $("#uvIndex").append(indexHigh);
+            }
+        });
+    });
+
 }
