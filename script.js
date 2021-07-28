@@ -96,4 +96,6 @@ function displayCityWeather() {
     });
 }
 
+function renderSearchList()
+
 
