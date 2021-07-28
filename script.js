@@ -11,3 +11,7 @@ var day = String(today.getDate());
 var month = String(today.getMonth() + 1);
 var year = today.getFullYear();
 var displayDate = day + "/" + month + "/" + year;
+
+function displayCityWeather() {
+    event.preventDefault();
+}
