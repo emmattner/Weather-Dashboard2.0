@@ -10,3 +10,11 @@ body {
 h1 {
     font-weight: bold;
 }
+
+.forecast {
+    font-size: 0.9em;
+}
+
+span {
+    font-size: 1em;
+}
