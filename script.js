@@ -110,6 +110,14 @@ function renderSearchList() {
 
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
+
+    var cityList = $("#citySearchBar").val().trim();
+
+    searchList.push(cityList);
+
+    renderSearchList();
 });
+
+
 
 
