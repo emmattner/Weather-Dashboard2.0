@@ -99,8 +99,8 @@ function displayCityWeather() {
 function renderSearchList() {
     $("#searchListPrevious").empty();
 
-    for (var i = 0; i < searchList.length; i++) {
-        var newCity = $("<li>");
+    for (const i = 0; i < searchList.length; i++) {
+        const newCity = $("<li>");
         newCity.addClass("list-group-item");
         newCity.attr("data-name", searchList[i]);
         newCity.text(searchList[i]);
@@ -111,7 +111,7 @@ function renderSearchList() {
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
 
-    var cityList = $("#citySearchBar").val().trim();
+    const cityList = $("#citySearchBar").val().trim();
 
     searchList.push(cityList);
 
