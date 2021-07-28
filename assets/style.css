@@ -18,3 +18,8 @@ h1 {
 span {
     font-size: 1em;
 }
+
+li:hover {
+    background-color: rgb(93, 113, 129);
+    text-decoration: underline;
+}
