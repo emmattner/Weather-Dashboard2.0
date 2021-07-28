@@ -39,17 +39,17 @@ function displayCityWeather() {
             method: "GET"
         }).then(function (response) {
 
-            var uvIndexValue = response.value;
+            const uvIndexValue = response.value;
 
-            var indexLow = $("<span>");
+            const indexLow = $("<span>");
             indexLow.addClass("badge badge-success");
             indexLow.text(response.value);
 
-            var indexMid = $("<span>");
+            const indexMid = $("<span>");
             indexMid.addClass("badge badge-warning");
             indexMid.text(response.value);
 
-            var indexHigh = $("<span>");
+            const indexHigh = $("<span>");
             indexHigh.addClass("badge badge-danger");
             indexHigh.text(response.value);
 
@@ -64,5 +64,7 @@ function displayCityWeather() {
             }
         });
     });
+
+    const queryURLFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=48eb8f7025236f284142f7fe0b9f55b4&units=metric";
 
 }
