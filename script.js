@@ -7,7 +7,7 @@ $("#card4").hide();
 $("#card5").hide();
 
 const today = new Date();
-const  day = String(today.getDate());
+const day = String(today.getDate());
 const month = String(today.getMonth() + 1);
 const year = today.getFullYear();
 const displayDate = day + "/" + month + "/" + year;
@@ -27,7 +27,7 @@ function displayCityWeather() {
         $("#temperature").text("Temperature: " + tempNumber + "°C");
         $("#humidity").text("Humidity: " + response.main.humidity + "%");
         $("#windSpeed").text("Wind Speed: " + response.wind.speed + " KM/H");
-        
+
         const long = response.coord.lon;
         const lat = response.coord.lat;
 
@@ -67,4 +67,33 @@ function displayCityWeather() {
 
     const queryURLFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=48eb8f7025236f284142f7fe0b9f55b4&units=metric";
 
+    $.ajax({
+        url: queryURLFiveDay,
+        method: "GET"
+    }).then(function (response) {
+        //Card 1
+        $("#dateCard1").text(response.list[6].dt_txt);
+        $("#temperatureCard1").text("Temp: " + response.list[6].main.temp + "°C");
+        $("#humidityCard1").text("Humidity: " + response.list[6].main.humidity + "%");
+        //Card 2
+        $("#dateCard2").text(response.list[14].dt_txt);
+        $("#temperatureCard2").text("Temp: " + response.list[14].main.temp + "°C");
+        $("#humidityCard2").text("Humidity: " + response.list[14].main.humidity + "%");
+        //Card 3
+        $("#dateCard3").text(response.list[22].dt_txt);
+        $("#temperatureCard3").text("Temp: " + response.list[22].main.temp + "°C");
+        $("#humidityCard3").text("Humidity: " + response.list[22].main.humidity + "%");
+        //Card 4
+        $("#dateCard4").text(response.list[30].dt_txt);
+        $("#temperatureCard4").text("Temp: " + response.list[30].main.temp + "°C");
+        $("#humidityCard4").text("Humidity: " + response.list[30].main.humidity + "%");
+        //Card 5
+        $("#dateCard5").text(response.list[38].dt_txt);
+        $("#temperatureCard5").text("Temp: " + response.list[38].main.temp + "°C");
+        $("#humidityCard5").text("Humidity: " + response.list[38].main.humidity + "%");
+
+
+    });
 }
+
+
