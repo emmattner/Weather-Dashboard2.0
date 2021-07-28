@@ -118,6 +118,14 @@ $("#searchBtn").on("click", function (event) {
     renderSearchList();
 });
 
-
+$(document).ready(function () {
+    $("#searchBtn").on("click", function () {
+        $("#card1").show();
+        $("#card2").show();
+        $("#card3").show();
+        $("#card4").show();
+        $("#card5").show();
+    });
+});
 
 
