@@ -96,6 +96,20 @@ function displayCityWeather() {
     });
 }
 
-function renderSearchList()
+function renderSearchList() {
+    $("#searchListPrevious").empty();
+
+    for (var i = 0; i < searchList.length; i++) {
+        var newCity = $("<li>");
+        newCity.addClass("list-group-item");
+        newCity.attr("data-name", searchList[i]);
+        newCity.text(searchList[i]);
+        $("#searchListPrevious").append(newCity);
+    }
+}
+
+$("#searchBtn").on("click", function (event) {
+    event.preventDefault();
+});
 
 
