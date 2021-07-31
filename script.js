@@ -4,7 +4,7 @@ const k2c_temp = (k) => Math.round(k - 273.15);
 const mps2kts = (mps) => Math.round(mps * 1.94384);
 const dt2date = function (dt) {
     let d = new Date(dt * 1000)
-    const months =  ['Jan','Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 
     return `${d.getDate()} ${months[d.getMonth()]}, ${d.getFullYear()}`
@@ -58,7 +58,7 @@ function searchForCity(city) {
         })
 }
 
-const updateSearchResultsList = (cities) => {     
+const updateSearchResultsList = (cities) => {
     let searchResultsList = document.querySelector('#search-results');
     // clear the results and reload
     searchResultsList.innerHTML = '';
@@ -80,7 +80,7 @@ document.querySelector('#search-results').addEventListener('click', (event) => {
 const updateWeatherReport = (city) => {
     const cityElement = document.querySelector('#city-weather');
 
-   // converts into lat/long 
+    // converts into lat/long 
     let storedCityData = JSON.parse(localStorage.getItem('weatherApp'));
     let { lat, lon } = storedCityData[city]
 
@@ -114,5 +114,25 @@ const fiveDayForecastTemplate = function (dataDaily) {
 <p class="icon"><i class="wi ${icon}"></i></p>
 <p class="temp">Temperature: ${temp} °C</p>
 <p class="humidity">humidity: ${humidity} %</p>`;
+}
+
+const cityWeatherTemplate = (cityname, data) => {
+    const date = dt2date(data.current.dt);
+    const cssColSpans = 4
+
+    return `                    <h3>${cityname} (${date})</h3>
+<p><div class='grid grid-cols-4 gap-4'> 
+    <div> Temperature </div> <div> ${k2c_temp(data.current.temp)}°C </div> <div class='col-span-2'></div>
+</div></p>
+<p><div class='grid grid-cols-4 gap-4'> 
+    <div> Humidity </div> <div>${data.current.humidity}% </div> <div class='col-span-2'></div>
+</div></p>
+<p><div class='grid grid-cols-4 gap-4'>
+     <div> Wind speed </div> <div> ${mps2kts(data.current.wind_speed)} kts </div> <div class='col-span-2'></div> 
+</div></p>
+<p><div class='grid grid-cols-4 gap-4'> 
+    <div> UV-index </div>  <div> <span class='rounded ${uvClass(data.current.uvi)}'>${data.current.uvi}</span> </div> <div class='col-span-2'></div> 
+</div></p>
+`
 }
 
