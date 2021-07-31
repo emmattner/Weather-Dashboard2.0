@@ -77,3 +77,18 @@ document.querySelector('#search-results').addEventListener('click', (event) => {
 
 });
 
+const updateWeatherReport = (city) => {
+    const cityElement = document.querySelector('#city-weather');
+
+   // converts into lat/long 
+    let storedCityData = JSON.parse(localStorage.getItem('weatherApp'));
+    let { lat, lon } = storedCityData[city]
+
+    window.fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${API_KEY_WEATHER}`)
+        .then(response => response.json())
+        .then(data => {
+            cityElement.innerHTML = cityWeatherTemplate(city, data);
+            upDateFiveDayForecast(city, data);
+        })
+}
+
