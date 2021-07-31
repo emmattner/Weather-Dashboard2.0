@@ -57,3 +57,17 @@ function searchForCity(city) {
             updateWeatherReport(city);
         })
 }
+
+const updateSearchResultsList = (cities) => {     
+    let searchResultsList = document.querySelector('#search-results');
+    // clear the results and reload
+    searchResultsList.innerHTML = '';
+
+    cities.sort().forEach(city => {
+        let li = document.createElement('li');
+        let liText = document.createTextNode(city);
+        li.appendChild(liText);
+        searchResultsList.appendChild(li);
+    })
+}
+
