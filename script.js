@@ -92,3 +92,15 @@ const updateWeatherReport = (city) => {
         })
 }
 
+const upDateFiveDayForecast = (city, data) => {
+
+    let forecast = document.querySelector('#forecast');
+
+    // update heading
+    document.querySelector('#forecast h3').innerText = `Forecast for ${city} : `;
+    for (let index = 1; index <= 5; index++) {
+        const element = document.querySelector(`#today-plus-${index}`);
+        element.innerHTML = fiveDayForecastTemplate(data.daily[index]);
+    }
+}
+
