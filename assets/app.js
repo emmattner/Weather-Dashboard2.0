@@ -1,4 +1,4 @@
-var API_KEY_WEATHER = "999765913b2b7cf6debaba7129671cd8";
+API_KEY_WEATHER = "4a3134ff84b520e99655fd55fab2c3b8";
 
 const k2c_temp = (k) => Math.round(k - 273.15);
 const mps2kts = (mps) => Math.round(mps * 1.94384);
@@ -37,12 +37,12 @@ function searchForCity(city) {
         .then(response => response.json())
         .then(arrData => {
             data = arrData[0];
-            let storedCityData = JSON.parse(localStorage.getItem('weatherApp'));
+            let storedCityData = JSON.parse(localStorage.getItem('weatherDashboard'));
             cities = Object.keys(storedCityData);
             // updates local storage data
             if (!cities.includes(data.name)) {
                 storedCityData[data.name] = data;
-                localStorage.setItem('weatherApp', JSON.stringify(storedCityData));
+                localStorage.setItem('weatherDashboard', JSON.stringify(storedCityData));
                 // update list of cities for update to the search results
                 cities.push(data.name)
                 cities.sort()
@@ -81,7 +81,7 @@ const updateWeatherReport = (city) => {
     const cityElement = document.querySelector('#city-weather');
 
     // converts into lat/long 
-    let storedCityData = JSON.parse(localStorage.getItem('weatherApp'));
+    let storedCityData = JSON.parse(localStorage.getItem('weatherDashboard'));
     let { lat, lon } = storedCityData[city]
 
     window.fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${API_KEY_WEATHER}`)
@@ -136,3 +136,24 @@ const cityWeatherTemplate = (cityname, data) => {
 `
 }
 
+document.addEventListener("DOMContentLoaded", (e) => {
+    e.preventDefault();
+    if (!localStorage.getItem('weatherDashbaord')) {
+        localStorage.setItem('weatherDashboard', '{}')
+    } else {
+        let storedCityData = JSON.parse(localStorage.getItem('weatherApp'));
+        cities = Object.keys(storedCityData);
+        updateSearchResultsList(cities)
+    }
+});
+
+document.addEventListener("DOMContentLoaded", (e) => {
+    e.preventDefault();
+    if (!localStorage.getItem('weatherDashboard')) {
+        localStorage.setItem('weatherDashboard', '{}')
+    } else {
+        let storedCityData = JSON.parse(localStorage.getItem('weatherDasboard'));
+        cities = Object.keys(storedCityData);
+        updateSearchResultsList(cities)
+    }
+});
