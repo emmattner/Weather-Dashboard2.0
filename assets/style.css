@@ -40,3 +40,25 @@ form label {
     color: purple;
 
 }
+
+#search-results li {
+    border: black;
+    padding: 1.5em;
+    width: auto;
+}
+
+#cities {
+    background-color: cornsilk;
+}
+
+#cities,
+#weather,
+#city,
+#forecast {
+    border-style: solid;
+    border: 1px solid black;
+}
+
+#forecast h3::after{
+    
+}
