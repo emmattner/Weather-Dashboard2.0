@@ -3,129 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Emma's Weather Dashboard!</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Emma's Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <div class="flex justify-center">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 bg-dark text-white">
+            <section id="cities">
 
-                <header>
-                    <h1 class="m-2">Weather Dashboard</h1>
-                </header>
-            </div>
+                <form id="city-search-form">
+                    <label for="search-for-city-input"> Search for a city </label>
+                    <div class="flex flex-row">
+                        <input type="text" id="search-for-city-input">
+                        <button type="submit">🔍</button>
+                    </div>
+                </form>
+
+                <ul id="search-results">
+                </ul>
+            </section>
+
+            <section id="weather">
+                <article id="city-weather">
+                </article>
+                <article id="forecast">
+                    <h3> Forecast...</h3>
+                    <div class="flex flex-row justify-between space-x-4">
+
+                        <div id="today-plus-1" class="bg-blue-700 rounded text-white">
+                        </div>
+
+
+                        <div id="today-plus-2" class="bg-blue-700 rounded text-white">
+                        </div>
+
+                        <div id="today-plus-3" class="bg-blue-700 rounded text-white">
+                        </div>
+
+                        <div id="today-plus-4" class="bg-blue-700 rounded text-white">
+                        </div>
+
+                        <div id="today-plus-5" class="bg-blue-700 rounded text-white">
+                        </div>
+
+
+                    </div>
+                </article>
+            </section>
         </div>
-        <div class="row">
-            <div class="col-3 bg-light">
-                <div class="mt-2 mb-2 mx-2">
-                    <aside>
-                        <h3>Search City</h3>
-                        <div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Enter City..."
-                                    aria-label="Recipient's username" aria-describedby="basic-addon2"
-                                    id="citySearchBar">
-                                <div class="input-group-append">
-                                    <button id="searchBtn" class="btn btn-primary" type="button"
-                                        onclick="displayCityWeather()">Search</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="searchListPrevious">
-                        </div>
-                    </aside>
-                </div>
-            </div>
-            <div class="col-9 forecast">
-                <div class="my-3">
-                    <div class="border border-secondary p-2">
-                        <div id="">
-                            <h3 id="cityName">Choose a city!</h3>
-                            <h5 id="temperature">Temperture:</h5>
-                            <h5 id="humidity">Humidity:</h5>
-                            <h5 id="windSpeed">Wind Speed:</h5>
-                            <h5 id="uvIndex">UV Index: </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 forecast">
-                        <h2>Forecast</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col forecast">
-                        <div id="card1">
-                            <div class="rounded bg-primary text-white p-2">
-                                <h4 id="dateCard1"></h4>
-                                <div id="icon1"></div>
-                                <h5 id="temperatureCard1"></h5>
-                                <h5 id="humidityCard1"></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col forecast">
-                        <div id="card2">
-                            <div class="rounded bg-primary text-white p-2">
-                                <h4 id="dateCard2"></h4>
-                                <div id="weatherIcon2"></div>
-                                <h5 id="temperatureCard2"></h5>
-                                <h5 id="humidityCard2"></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col forecast">
-                        <div id="card3">
-                            <div class="rounded bg-primary text-white p-2">
-                                <h4 id="dateCard3"></h4>
-                                <div id="weatherIcon3"></div>
-                                <h5 id="temperatureCard3"></h5>
-                                <h5 id="humidityCard3"></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col forecast">
-                        <div id="card4">
-                            <div class="rounded bg-primary text-white p-2">
-                                <h4 id="dateCard4"></h4>
-                                <div id="weatherIcon4"></div>
-                                <h5 id="temperatureCard4"></h5>
-                                <h5 id="humidityCard4"></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col forecast">
-                        <div id="card5">
-                            <div class="rounded bg-primary text-white p-2">
-                                <h4 id="dateCard5"></h4>
-                                <div id="weatherIcon5"></div>
-                                <h5 id="temperatureCard5"></h5>
-                                <h5 id="humidityCard5"></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-    <script src="./assets/style.css"></script>
-
+    <footer>
+    </footer>
+    <!-- <script src="./assets/js/app.js"></script> -->
+    <script src="./assets/js/app.js"></script>
 </body>
 
 </html>
