@@ -104,3 +104,15 @@ const upDateFiveDayForecast = (city, data) => {
     }
 }
 
+const fiveDayForecastTemplate = function (dataDaily) {
+    let date = dt2date(dataDaily.dt)
+    let icon = ''
+    let temp = k2c_temp(dataDaily.temp.day);
+    let humidity = dataDaily.humidity;
+
+    return `<p class="date">${date}</p>
+<p class="icon"><i class="wi ${icon}"></i></p>
+<p class="temp">Temperature: ${temp} °C</p>
+<p class="humidity">humidity: ${humidity} %</p>`;
+}
+
