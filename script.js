@@ -71,3 +71,9 @@ const updateSearchResultsList = (cities) => {
     })
 }
 
+document.querySelector('#search-results').addEventListener('click', (event) => {
+    event.preventDefault();
+    updateWeatherReport(event.target.innerHTML)
+
+});
+
