@@ -1,25 +1,42 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+:root {}
 
 h1 {
-    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    background-color: darkslategray;
+    color: wheat;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
 }
 
-.forecast {
-    font-size: 0.9em;
+h3,
+form label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
 }
 
-span {
-    font-size: 1em;
+.uv-low {
+    background-color: green;
+    color: black;
+}
+.uv-mod {
+    background-color: yellow;
+    color: black;
+    
+}
+.uv-high {
+    background-color: orange;
+    color: black;
+    
+}
+.uv-very-high {
+    background-color: red;
+    color: black;
+    
 }
 
-li:hover {
-    background-color: rgb(93, 113, 129);
-    text-decoration: underline;
+.uv-extreme {
+    background-color:black;
+    color: purple;
+
 }
