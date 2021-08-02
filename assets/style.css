@@ -3,17 +3,18 @@
 h1 {
     text-align: center;
     width: 100%;
-    background-color: #00BFFF;
-    color: blanchedalmond;
+    background-color: #87CEFA;
+    color: black;
     font-family: monospace;
     font-size: xx-large;
     padding: 40px;
+    margin: 20px;
 }
 
 h3,
 form label {
     font-family: monospace;
-    font-size: large;
+    font-size: xx-large;
 }
 
 .uv-low {
@@ -49,7 +50,7 @@ form label {
 }
 
 #cities {
-    background-color: blanchedalmond;
+    background-color:#8FBC8F;
 }
 
 #cities,
@@ -59,4 +60,5 @@ form label {
     border-style: solid;
     border: 1px solid black;
     padding: 30px;
+    background-color:#8FBC8F;
 }
