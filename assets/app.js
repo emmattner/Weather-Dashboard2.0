@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     if (!localStorage.getItem('weatherDashbaord')) {
         localStorage.setItem('weatherDashboard', '{}')
     } else {
-        let storedCityData = JSON.parse(localStorage.getItem('weatherApp'));
+        let storedCityData = JSON.parse(localStorage.getItem('weatherDashboard'));
         cities = Object.keys(storedCityData);
         updateSearchResultsList(cities)
     }
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault();
     if (!localStorage.getItem('weatherDashboard')) {
-        localStorage.setItem('weatherDashboard', '{}')
+        localStorage.setItem('weatherDahsboard', '{}')
     } else {
         let storedCityData = JSON.parse(localStorage.getItem('weatherDasboard'));
         cities = Object.keys(storedCityData);
